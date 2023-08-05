@@ -1,0 +1,23 @@
+<div class="banner">
+    <app-header></app-header>
+    <div class="container">
+        <h1 style="text-align: center;">CUSTOMER CARE SECTION</h1>
+        <div class="Qhistory">
+            <div class="record" *ngFor="let ele of queries">
+                <h2>{{ele.question}}?</h2>
+                <small style="color: wheat;">question created at {{ele.queryCreatedDate}}</small>
+                <br>
+                <div *ngIf="ele.answer == null">
+                    <input type="text" placeholder="Add Response" #response style="width: 400px;"> &nbsp;
+                    <button class="btn btn-warning" (click)="addResponse(ele,response.value)">AddResponse</button>
+                </div>
+                <div *ngIf="ele.answer != null">
+                    <h2>{{ele.answer}}</h2>
+                    <small style="color: rgb(197, 249, 7) ;">reponse created at {{ele.answerCreatedAt}}</small>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

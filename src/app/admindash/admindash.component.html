@@ -1,0 +1,140 @@
+<div class="banner">
+    <app-header></app-header>
+    <h1 style="text-align: center; padding: 20px;">ADMIN DASHBOARD</h1>
+    <div class="container">
+        <div class="box-1">
+            <h1 style="text-align: center; color: yellow;">PLAY CARDS</h1>
+            <hr>
+            <div class="cardcontent" style="margin: 0 20px;">
+                <table class="table text-light">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Offer</th>
+                            <th scope="col">Delete</th>
+                            <th scope="col">Update</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let ele of playcards">
+                            <th scope="row">{{ele.id}}</th>
+                            <td>{{ele.name}}</td>
+                            <td>{{ele.price}}</td>
+                            <td><input type="text" placeholder="{{ele.offer}}" #poffer1></td>
+                            <td><button class="btn btn-danger" (click)="deletepc(ele.id)">Delete</button></td>
+                            <td><button class="btn btn-primary" (click)="updatepc(ele.id,poffer1.value)">Update</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="box-2">
+            <h1 style="text-align: center; color: red;">AVILABLE GAMES</h1>
+            <hr>
+            <div class="gamecontent" style="margin: 0 20px;">
+                <table class="table text-light">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Created by</th>
+                            <th scope="col">Level</th>
+                            <th scope="col">Delete</th>
+                            <th scope="col">Update</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let ele of games">
+                            <th scope="row">{{ele.id}}</th>
+                            <td><input type="text" placeholder="{{ele.name}}" #gname1></td>
+                            <td><img src="{{ele.imageurl}}" alt="image.jpg" style="width: 200px; height: 200px;"></td>
+                            <td>{{ele.createdby}}</td>
+                            <td>{{ele.level}}</td>
+                            <td><button class="btn btn-danger" (click)="deletegame(ele.id)">Delete</button></td>
+                            <td><button class="btn btn-warning"
+                                    (click)="updategame(ele.id,gname1.value)">Update</button></td>
+
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="box-3">
+            <h1 style="text-align: center; color: red;">ADD GAME TO PLAY CARD</h1>
+            <input type="number" placeholder="Enter the Playcard Id" #pid>
+            <input type="number" placeholder="Enter the GameId" #gid>
+            <button class="btn btn-primary" (click)="AddGameToCard(pid.value,gid.value)">AddGame</button>
+
+        </div>
+        <div class="box-4">
+            <h1 style="text-align: center; color: red;">ADD GAME TO DATABASE</h1>
+            <table class="table text-light">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">ImageUrl</th>
+                        <th scope="col">createdby</th>
+                        <th scope="col">level</th>
+                        <th scope="col">Update</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">#</th>
+                        <td><input type="text" placeholder="Enter Game Name" #gname></td>
+                        <td><input type="text" placeholder="Enter Imageurl" #gimage></td>
+                        <td><input type="text" placeholder="Enter Creattedby" #gcreated></td>
+                        <td><input type="text" placeholder="Enter Level" #glevel></td>
+                        <td><button class="btn btn-primary"
+                                (click)="savegame(gname.value,gimage.value,gcreated.value,glevel.value)">Save</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+        <div class="box-5">
+            <h1 style="text-align: center; color: red;">ADD PLAYCARD</h1>
+            <table class="table text-light">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Offer</th>
+
+                        <th scope="col">Update</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">#</th>
+                        <td><input type="text" placeholder="Enter Playcard Name" #pname></td>
+                        <td><input type="text" placeholder="Enter Price" #pprice></td>
+                        <td><input type="text" placeholder="Enter Offer" #poffer></td>
+                        <td><button class="btn btn-primary"
+                                (click)="saveplaycard(pname.value,pprice.value,poffer.value)">Save</button></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

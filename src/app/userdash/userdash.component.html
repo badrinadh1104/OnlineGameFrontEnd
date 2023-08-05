@@ -1,0 +1,31 @@
+<div class="banner">
+    <app-header> </app-header>
+    <div class="container">
+        <div class="container">
+            <div class="content" *ngIf="isok">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                    <div class="col" *ngFor="let ele of games">
+                        <div class="card">
+                            <img src="{{ele.imageurl}}" class="card-img-top" alt="Palm Springs Road" />
+                            <div class="card-body">
+                                <h1 class="card-title">{{ele.name}}</h1>
+                                <p class="card-text">
+                                    This is a longer card with supporting text below as a natural lead-in to additional
+                                    content. This content is a little bit longer.
+                                </p>
+                                <button class="btn btn-primary" style="width: 100%;" (click)="startgame(ele)">Play
+                                    Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="Empty" *ngIf="!isok">
+                <h1>No Games available Please Purchase a Card</h1>
+            </div>
+        </div>
+    </div>
+
+</div>

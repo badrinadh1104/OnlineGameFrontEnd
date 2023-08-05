@@ -1,0 +1,21 @@
+<div class="banner">
+    <app-header></app-header>
+
+    <div class="QuestionBox">
+        <div class="Qcontent">
+            <div>
+                <input type="text" #query class="form-control" placeholder="ENTER YOUR QUESTION HERE" name="question" style="width:500px ;">
+            </div>
+            <button class="btn btn-primary" style="height: 75%; margin: auto auto;" (click)="addQuestion(query.value)">AddQuestion</button>
+        </div>
+    </div>
+    <div class="Qhistory">
+        <div class="record" *ngFor="let ele of questions">
+            <h2>{{ele.question}}</h2>
+            <small style="color: wheat;">question created {{ele.queryCreatedDate}}</small>
+            <h2>Response : {{ele.answer}}</h2>
+            <small>reponse created {{ele.answerCreatedAt}}</small>
+        </div>
+
+    </div>
+</div>
